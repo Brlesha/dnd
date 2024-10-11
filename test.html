@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сохранение страницы как PNG</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+
+    <h1>Заголовок страницы</h1>
+    <p>Это пример страницы, которую мы будем сохранять в формате PNG.</p>
+    
+    <button id="savePngButton">Сохранить страницу как PNG</button>
+
+    <script>
+        document.getElementById("savePngButton").addEventListener("click", function() {
+            html2canvas(document.body, {
+                useCORS: true
+            }).then(canvas => {
+                const link = document.createElement('a');
+                link.href = canvas.toDataURL('image/png');
+                link.download = 'страница.png';
+                link.click();
+            });
+        });
+    </script>
+
+</body>
+</html>
