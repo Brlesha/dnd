@@ -65,6 +65,7 @@ img {
 
 .header {
     max-width: 1170px;
+    max-height: 46px;
     border-bottom: 1px solid white;
     margin-top: 30px;
     text-shadow: 1px 0 1px #00000082, 
@@ -311,6 +312,10 @@ input[type="text"] {
 .main {
     padding: 30px;
     flex: 1 1 auto;
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    padding-bottom: 15%;
 }
 
 .button {
