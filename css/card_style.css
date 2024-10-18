@@ -36,7 +36,6 @@ body {
     height: 1050px;
     margin: 0 auto;
     display: flex;
-    position: fixed;
     top: 0;
     left: 0;
     background-color: transparent;
@@ -152,7 +151,6 @@ body {
     width: 10px;
     margin-top: 3px;
 }
-
 .input-wrapper {
     position: relative; /* Позволяет использовать абсолютное позиционирование внутри */
     padding-bottom: 5px;
@@ -181,14 +179,14 @@ body {
     border: 2px solid #FFFFF0;
     border-radius: 100px;
 }
- .ref {
+.ref {
     font-family: Bainsley;
     padding-bottom: 3px;
     margin-right: 5px;
     bottom: 5px
  }
 
- .hidden {
+.hidden {
     display: none;
 }
 
