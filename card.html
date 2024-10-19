@@ -104,11 +104,19 @@
                             </div>
                         </div>
                         <div style="display: flex; flex-direction: columns;">
-                            <div style="background-size: contain; background-repeat: no-repeat; width: 140px; height: 120px;background-image: url('img/Eye.png');;">
-                                <input type="text" class="input-field" style="border-bottom: none; width: 140px; height: 110px; margin: 0; text-align: center; font-size: 50px; color: black" placeholder="0">                       
+                            <div style="background-size: contain; background-repeat: no-repeat; width: 250px; height: 200px;background-image: url('img/master.png'); display:flex; flex-direction: column;">
+                                <input type="text" class="input-field" style="padding-top: 15px; border-bottom: none; width: 80px; height: 110px; margin: 0; text-align: center; font-size: 50px; color: black" placeholder="0">                       
+                                <input type="text" class="input-field" style="padding-bottom: 20px; border-bottom: none; width: 80px; height: 110px; margin: 0; text-align: center; font-size: 50px; color: black" placeholder="0">                       
+                            </div>
+                            <div style="background-size: contain; width:120px; height: 100px;background-repeat: no-repeat; align-items: center; background-image: url('img/Eye.png');">
+                                <input type="text" class="input-field" style="border-bottom: none; width: 120px; height: 100px; margin: 0; text-align: center; font-size: 50px; color: black" placeholder="0">
                             </div>
                         </div>
                         <div style="display: flex; flex-direction: columns;">
+                            <div style="background-size: contain; width:355px; height: 200px;background-repeat: no-repeat; align-items: center; background-image: url('img/HP.png');"></div>
+                        </div>
+                        <div style="display: flex; flex-direction: columns;">
+                            <div style="background-size: contain; width:355px; height: 120px;background-repeat: no-repeat; align-items: center; background-image: url('img/money.png');"></div>
                         </div>
                         <div style="width: 110%; padding: -1px; height: 100px; bottom: 0px; position:absolute; display:flex; right: -40px;">
                             <!--интеллект-->
@@ -228,7 +236,7 @@
 
         <!-- Правый контейнер -->
         <div class="container" style="padding-top: 0px;">
-            <button id="colorButton" style="text-align: center; width: 720px;">Подземелья Веркстедфорта</button>
+            <button id="colorButton" style="text-align: center; width: 720px;">Подземелья Верстедфорта</button>
             <div id="colorInputContainer" class="hidden">
                 <input type="text" id="hexColorInput" placeholder="#FFFFFF">
                 <button id="applyColor">Применить</button>
@@ -254,9 +262,11 @@
                             <div class="label">Умения и способности</div> <!-- Подпись -->
                         </div>
 
+                        <div style="background-size: contain; width:100%; height: 100%;background-repeat: no-repeat; align-items: center; background-image: url('img/ammo.png');"></div>
+
                     </div>
 
-                    <!-- правая половина негр правого контейнера -->
+                    <!-- правая половина правого контейнера -->
                     <div style="width: 50%; padding: -1px;">
                         <div class="input-wrapper ref">
                             <textarea class="textarea ref-textarea" placeholder="Что или кто тебе дорог?"></textarea>
@@ -267,14 +277,16 @@
                             <div class="label ref">Слабости</div> <!-- Подпись -->
                         </div>
                         <div class="input-wrapper ref">
-                            <textarea class="textarea ref-textarea" style="height: 565px" placeholder="..."></textarea>
+                            <textarea class="textarea ref-textarea" style="height: 813px;" placeholder="..."></textarea>
                             <div class="label">Атаки и заклинания</div> <!-- Подпись -->
                         </div>
                     </div>
                 </div>
         </div>
     </div>
-
+    <div id="overlay" class="page" style="margin-top: 30px;">
+        <img src="img/pergament.jpg" style="width: 1480px; height: 1050px; z-index: 1; opacity: 0.15; position:absolute; pointer-events: none;"></img>
+    </div>
 </body>
 
 <script src="scripts/script.js"></script>

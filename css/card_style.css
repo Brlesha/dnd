@@ -29,7 +29,6 @@ body {
     /*background-image: url('img/pergament.jpeg');*/
     background-repeat: none;
     background-size: cover;
-    overflow: hidden;
 }
 .page {
     width: 1480px;
