@@ -3,90 +3,97 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ДНД Карточка</title>
-    <!--<link rel="stylesheet" href="css/card_style.css">-->
     <link rel="stylesheet" href="css/styletest.css">
 </head>
 <body style="height: 200px;">
     <div class="perc" style="height: 100%; width: 17%; display: flex; flex-direction: column; align-items: center;">
         <div class="skills_checkbox perc">
-            <div id="checkbox" class="custom-checkbox empty">
+            <div class="custom-checkbox empty">
                 <h class="perc_value" style="font-size: 15px; padding: 0 0 3px 0;">+0</h>
             </div>
-            <span class="skill_name">Спасбросок</span>
+            <span class="skill_name">Спасбросок 1</span>
         </div>  
         <div class="skills_checkbox perc">
-            <div id="checkbox" class="custom-checkbox empty">
+            <div class="custom-checkbox empty">
                 <h class="perc_value" style="font-size: 15px; padding: 0 0 3px 0;">+0</h>
             </div>
-            <span class="skill_name">Спасбросок</span>
+            <span class="skill_name">Спасбросок 2</span>
         </div>
         <div class="skills_checkbox perc">
-            <div id="checkbox" class="custom-checkbox empty">
+            <div class="custom-checkbox empty">
                 <h class="perc_value" style="font-size: 15px; padding: 0 0 3px 0;">+0</h>
             </div>
-            <span class="skill_name">Спасбросок</span>
+            <span class="skill_name">Спасбросок 3</span>
         </div>
         <div class="skills_checkbox perc">
-            <div id="checkbox" class="custom-checkbox empty">
+            <div class="custom-checkbox empty">
                 <h class="perc_value" style="font-size: 15px; padding: 0 0 3px 0;">+0</h>
             </div>
-            <span class="skill_name">Спасбросок</span>
+            <span class="skill_name">Спасбросок 4</span>
         </div>
         <h class="perc_value" style="width: 50px; height: 20%; text-align: center;">+0</h><br>
-        <input class="perc_input textarea perc-textarea" placeholder="10" autocomplete="off">
+        <input id="globalInput" class="perc_input textarea perc-textarea" placeholder="10" autocomplete="off">
         <div style="">ловкость</div>
     </div>
-</body>
+
 <script>
+function calculatePerc(perc_input) {
+    let perc_output;
+    if (perc_input > 0 && perc_input <= 20) {
+        perc_output = Math.floor((perc_input - 10) / 2);
+        return perc_output;
+    } else {
+        return 0;
+    }
+}
+
+function updatePercOutput() {
+    const inputElement = document.getElementById('globalInput');
+    const perc_input = inputElement.value;
+    let baseOutput = calculatePerc(perc_input);
+
+    // Получаем все чекбоксы
+    const checkboxes = document.querySelectorAll('.custom-checkbox');
+    checkboxes.forEach((checkbox) => {
+        // Находим соответствующий элемент perc_value
+        const percValueElement = checkbox.querySelector('.perc_value');
+
+        // Если чекбокс имеет класс boosted1, добавляем 2
+        if (checkbox.classList.contains('boosted1')) {
+            const newValue = (baseOutput + 2 >= 0 ? '+' : '') + (baseOutput + 2); // Прибавляем 2 и форматируем
+            percValueElement.innerHTML = newValue;  // Обновляем значение
+        } else {
+            const newValue = (baseOutput >= 0 ? '+' : '') + baseOutput; // Формируем значение без добавления
+            percValueElement.innerHTML = newValue;  // Обновляем значение
+        }
+    });
+}
 
 function perc_calc(event) {
-    var perc_input = event.target.value; // Получаем значение конкретного input
-    let perc_output; // Определяем переменную
-
-    if (perc_input > 0 && perc_input <= 20) {
-        perc_output = Math.floor((perc_input - 10) / 2); // Считаем результат
-        if (perc_output >= 0) { perc_output = '+' + perc_output; } // Корректно присваиваем результат
-    } else {
-        perc_output = 0; // Устанавливаем значение для else
-    }
-
-    console.log(perc_output); // Проверка в консоли
-
-    // Отправляем результат на соответствующий <h> внутри того же блока
-        const percElements = event.target.closest('.perc').querySelectorAll('.perc_value');
-percElements.forEach((element) => {
-    element.innerHTML = perc_output;
-});
+    updatePercOutput();
 }
-// Находим все элементы с классом "perc_input" и добавляем обработчик событий
-document.querySelectorAll('.perc_input').forEach(function(input) {
-    input.oninput = perc_calc;
-});
 
-//тройной чекбокс 
+// Обработка события для единственного инпута
+document.getElementById('globalInput').oninput = perc_calc;
 
-// Возможные состояния
+// Возможные состояния чекбокса
 const states = ['empty', 'boosted1', 'boosted2'];
 
-// Добавляем делегирование событий на весь документ или контейнер чекбоксов
+// Делегирование событий для изменения состояния чекбоксов
 document.addEventListener("click", function(event) {
-    const checkbox = event.target.closest('.custom-checkbox');  
-    // Проверяем, что клик был именно по элементу с классом custom-checkbox
-    if (checkbox) { 
+    const checkbox = event.target.closest('.custom-checkbox');
+    if (checkbox) {
         let currentStateIndex = states.findIndex(state => checkbox.classList.contains(state));
 
-        // Удаляем текущее состояние
+        // Удаляем текущее состояние и устанавливаем следующее
         checkbox.classList.remove(states[currentStateIndex]);
-
-        // Переходим к следующему состоянию
         currentStateIndex = (currentStateIndex + 1) % states.length;
-
-        // Применяем новое состояние
         checkbox.classList.add(states[currentStateIndex]);
+
+        // Обновляем значения в perc_value
+        updatePercOutput();
     }
 });
-
-
-
 </script>
+</body>
 </html>
