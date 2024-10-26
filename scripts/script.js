@@ -116,3 +116,22 @@ document.addEventListener("click", function(event) {
         checkbox.classList.add(states[currentStateIndex]);
     }
 });
+
+const checkbox = document.getElementsByClassName('dexterity');
+        const checkboxValue = document.getElementById('checkboxValue');
+
+        let state = 0; // 0 - первое состояние, 1 - второе состояние, 2 - третье состояние
+
+        checkbox.addEventListener('click', () => {
+            if (state === 0) {
+                state = 1; // Переход на второе состояние
+                checkboxValue.textContent = 2; // Устанавливаем значение 2
+            } else if (state === 1) {
+                state = 2; // Переход на третье состояние
+                checkboxValue.textContent = 4; // Устанавливаем значение 4
+            } else {
+                state = 0; // Возврат в первое состояние
+                checkboxValue.textContent = 0; // Обнуляем значение
+                checkbox.checked = false; // Снимаем отметку с чекбокса
+            }
+        });

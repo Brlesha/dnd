@@ -146,12 +146,12 @@ body {
 }
 
 .wrapper {
-    position: relative; /* Позволяет использовать абсолютное позиционирование внутри */
+    position: relative; 
     width: 10px;
     margin-top: 3px;
 }
 .input-wrapper {
-    position: relative; /* Позволяет использовать абсолютное позиционирование внутри */
+    position: relative; 
     padding-bottom: 5px;
 }
 
@@ -295,6 +295,7 @@ body {
     display: flex; 
     flex-direction: column-reverse;
 }
+
 .skills_checkbox {
     display: flex;
     flex-direction: row;
@@ -305,6 +306,10 @@ body {
 .skill_name {
     margin-left: 4px;
     font-size: 14px;
+}
+
+.dexterity{
+    
 }
 
 
