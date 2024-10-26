@@ -1,4 +1,5 @@
 <!DOCTYPE html lang="ru">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -31,8 +32,38 @@
             </div>
             <span class="skill_name">Спасбросок 4</span>
         </div>
-        <h class="perc_value" style="width: 50px; height: 20%; text-align: center;">+0</h><br>
-        <input id="globalInput" class="perc_input textarea perc-textarea" placeholder="10" autocomplete="off">
+        <h class="globalPercValue perc_value" style="width: 50px; height: 20%; text-align: center;">+0</h><br>
+        <input class="globalInput perc_input textarea perc-textarea" placeholder="10" autocomplete="off">
+        <div style="">ловкость</div>
+    </div>
+
+    <div class="perc" style="height: 100%; width: 17%; display: flex; flex-direction: column; align-items: center;">
+        <div class="skills_checkbox perc">
+            <div class="custom-checkbox empty">
+                <h class="perc_value" style="font-size: 15px; padding: 0 0 3px 0;">+0</h>
+            </div>
+            <span class="skill_name">Спасбросок 1</span>
+        </div>  
+        <div class="skills_checkbox perc">
+            <div class="custom-checkbox empty">
+                <h class="perc_value" style="font-size: 15px; padding: 0 0 3px 0;">+0</h>
+            </div>
+            <span class="skill_name">Спасбросок 2</span>
+        </div>
+        <div class="skills_checkbox perc">
+            <div class="custom-checkbox empty">
+                <h class="perc_value" style="font-size: 15px; padding: 0 0 3px 0;">+0</h>
+            </div>
+            <span class="skill_name">Спасбросок 3</span>
+        </div>
+        <div class="skills_checkbox perc">
+            <div class="custom-checkbox empty">
+                <h class="perc_value" style="font-size: 15px; padding: 0 0 3px 0;">+0</h>
+            </div>
+            <span class="skill_name">Спасбросок 4</span>
+        </div>
+        <h class="globalPercValue perc_value" style="width: 50px; height: 20%; text-align: center;">+0</h><br>
+        <input class="globalInput perc_input textarea perc-textarea" placeholder="10" autocomplete="off">
         <div style="">ловкость</div>
     </div>
 
@@ -47,34 +78,43 @@ function calculatePerc(perc_input) {
     }
 }
 
-function updatePercOutput() {
-    const inputElement = document.getElementById('globalInput');
+function updatePercOutput(inputElement) {
     const perc_input = inputElement.value;
-    let baseOutput = calculatePerc(perc_input);
+    const baseOutput = calculatePerc(perc_input);
+    
+    // Получаем родительский элемент perc для текущего инпута
+    const percContainer = inputElement.closest('.perc');
+    
+    // Обновление значения для текущего блока
+    const globalPercValueElement = percContainer.querySelector('.globalPercValue');
+    globalPercValueElement.innerHTML = (baseOutput >= 0 ? '+' : '') + baseOutput; 
 
-    // Получаем все чекбоксы
-    const checkboxes = document.querySelectorAll('.custom-checkbox');
+    // Получаем все чекбоксы в текущем блоке
+    const checkboxes = percContainer.querySelectorAll('.custom-checkbox');
     checkboxes.forEach((checkbox) => {
-        // Находим соответствующий элемент perc_value
         const percValueElement = checkbox.querySelector('.perc_value');
+        let adjustedValue = baseOutput;
 
-        // Если чекбокс имеет класс boosted1, добавляем 2
+        // Обновление boosted1 или boosted2
         if (checkbox.classList.contains('boosted1')) {
-            const newValue = (baseOutput + 2 >= 0 ? '+' : '') + (baseOutput + 2); // Прибавляем 2 и форматируем
-            percValueElement.innerHTML = newValue;  // Обновляем значение
-        } else {
-            const newValue = (baseOutput >= 0 ? '+' : '') + baseOutput; // Формируем значение без добавления
-            percValueElement.innerHTML = newValue;  // Обновляем значение
+            adjustedValue += 2; 
+        } else if (checkbox.classList.contains('boosted2')) {
+            adjustedValue += 4; 
         }
+
+        const newValue = (adjustedValue >= 0 ? '+' : '') + adjustedValue; // Формируем новое значение
+        percValueElement.innerHTML = newValue;  // Обновляем значение
     });
 }
 
 function perc_calc(event) {
-    updatePercOutput();
+    updatePercOutput(event.target);
 }
 
-// Обработка события для единственного инпута
-document.getElementById('globalInput').oninput = perc_calc;
+// Обработка события для каждого инпута
+document.querySelectorAll('.globalInput').forEach(function(input) {
+    input.oninput = perc_calc;
+});
 
 // Возможные состояния чекбокса
 const states = ['empty', 'boosted1', 'boosted2'];
@@ -91,7 +131,7 @@ document.addEventListener("click", function(event) {
         checkbox.classList.add(states[currentStateIndex]);
 
         // Обновляем значения в perc_value
-        updatePercOutput();
+        updatePercOutput(checkbox.closest('.skills_checkbox').parentElement.querySelector('.globalInput'));
     }
 });
 </script>
