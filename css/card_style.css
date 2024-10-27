@@ -44,7 +44,6 @@ body {
 
 .perc_value {
     font-family: Beaumarchais;
-    position: absolute;
     margin-top: 4px;
     font-size: 50px;
     text-align: center;
@@ -73,13 +72,14 @@ body {
     color: #FFFFF0;
 }
 .block-2 {
-    height: 800px;
+    height: 670px;
     border: none; /* Убираем рамку */
 }
 .block-3 {
+    border: none;
     position: relative;
     display: flex;
-    height: 100px;
+    height: 230px;
     width: 720px;
     left: -5px;
 }
@@ -129,13 +129,16 @@ body {
     /* Подсветка при фокусе */
 }
 .perc-textarea {
-    position: absolute;
     height: 22px;
-    font-size: 22px; /* Размер шрифта 12 пикселей */
+    width: 50%;
+    font-size: 22px; 
     text-align: center;
     bottom: 5px;
     left: 0px;
     white-space: nowrap;
+    background-color: transparent;
+    border: none;
+    color: #fff;
 }
 .ref-textarea {
     height: 56px;
@@ -165,7 +168,7 @@ body {
     transition: transform 0.3s ease, font-size 0.3s ease; /* Плавный переход */
 }
 
-.perc {
+/*.perc {
     font-family: Bainsley;
     display: flex;
     justify-content: center;
@@ -177,7 +180,16 @@ body {
     padding-bottom: 0px;
     border: 2px solid #FFFFF0;
     border-radius: 100px;
+}*/
+
+.perc_input {
+    outline:none;
 }
+.perc_input::placeholder {
+    color: #FFFFF0;
+}
+
+
 .ref {
     font-family: Bainsley;
     padding-bottom: 3px;
@@ -258,8 +270,8 @@ body {
 
 
 .custom-checkbox {
-    width: 10px;
-    height: 10px;
+    width: 20px;
+    height: 18px;
     border-radius: 10px;
     cursor: pointer;
     text-align: center;
@@ -271,21 +283,7 @@ body {
 
 .custom-checkbox.empty {
     background-color: transparent;
-    border: 2px solid white;
-    color: transparent;
-    user-select: none;
-}
-
-.custom-checkbox.filled {
-    color: white;
-    border: 2px solid white;
-    user-select: none;
-}
-
-.custom-checkbox.filled-bordered {
-    color: black;
-    background-color: white;
-    border: 2px solid white;
+    color: #fff;
     user-select: none;
 }
 
@@ -300,7 +298,7 @@ body {
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin: 1px;
+    margin: 3px;
 }
 
 .skill_name {
@@ -308,10 +306,15 @@ body {
     font-size: 14px;
 }
 
-.dexterity{
-    
+.boosted1 {
+    border: 1px solid white;
+    border-radius: 20px;
 }
 
+.boosted2 {
+    border: 2px solid white;
+    border-radius: 20px;
+}
 
 
 

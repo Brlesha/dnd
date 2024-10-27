@@ -6,28 +6,6 @@ textareas.forEach(textarea => {
     });
 });
 
-function perc_calc(event) {
-    var perc_input = event.target.value; // Получаем значение конкретного input
-    let perc_output; // Определяем переменную
-
-    if (perc_input > 0 && perc_input <= 20) {
-        perc_output = Math.floor((perc_input - 10) / 2); // Считаем результат
-        if (perc_output > 0) { perc_output = '+' + perc_output; } // Корректно присваиваем результат
-    } else {
-        perc_output = 0; // Устанавливаем значение для else
-    }
-
-    console.log(perc_output); // Проверка в консоли
-
-    // Отправляем результат на соответствующий <h> внутри того же блока
-    event.target.closest('.perc').querySelector('.perc_value').innerHTML = perc_output;
-}
-
-// Находим все элементы с классом "perc_input" и добавляем обработчик событий
-document.querySelectorAll('.perc_input').forEach(function(input) {
-    input.oninput = perc_calc;
-});
-
 // Изменение цвета заднего фона
 
 document.getElementById("colorButton").addEventListener("click", function() {
@@ -91,47 +69,79 @@ document.getElementById("savePngButton").addEventListener("click", function() {
     // Захватываем весь документ
     alert('я пока не понимаю как это реализовать( \n                     С уважением, Лев')
 });
-// 
 
-//тройной чекбокс 
+//char_name
+//char_name_disp
 
-// Возможные состояния
-const states = ['empty', 'filled', 'filled-bordered'];
 
-// Добавляем делегирование событий на весь документ или контейнер чекбоксов
+
+
+
+
+
+function calculatePerc(perc_input) {
+    let perc_output;
+    if (perc_input > 0 && perc_input <= 20) {
+        perc_output = Math.floor((perc_input - 10) / 2);
+        return perc_output;
+    } else {
+        return 0;
+    }
+}
+
+function updatePercOutput(inputElement) {
+    const perc_input = inputElement.value;
+    const baseOutput = calculatePerc(perc_input);
+    
+    // Получаем родительский элемент perc для текущего инпута
+    const percContainer = inputElement.closest('.perc');
+    
+    // Обновление значения для текущего блока
+    const globalPercValueElement = percContainer.querySelector('.globalPercValue');
+    globalPercValueElement.innerHTML = (baseOutput >= 0 ? '+' : '') + baseOutput; 
+
+    // Получаем все чекбоксы в текущем блоке
+    const checkboxes = percContainer.querySelectorAll('.custom-checkbox');
+    checkboxes.forEach((checkbox) => {
+        const percValueElement = checkbox.querySelector('.perc_value');
+        let adjustedValue = baseOutput;
+
+        // Обновление boosted1 или boosted2
+        if (checkbox.classList.contains('boosted1')) {
+            adjustedValue += 2; 
+        } else if (checkbox.classList.contains('boosted2')) {
+            adjustedValue += 4; 
+        }
+
+        const newValue = (adjustedValue >= 0 ? '+' : '') + adjustedValue; // Формируем новое значение
+        percValueElement.innerHTML = newValue;  // Обновляем значение
+    });
+}
+
+function perc_calc(event) {
+    updatePercOutput(event.target);
+}
+
+// Обработка события для каждого инпута
+document.querySelectorAll('.globalInput').forEach(function(input) {
+    input.oninput = perc_calc;
+});
+
+// Возможные состояния чекбокса
+const states = ['empty', 'boosted1', 'boosted2'];
+
+// Делегирование событий для изменения состояния чекбоксов
 document.addEventListener("click", function(event) {
     const checkbox = event.target.closest('.custom-checkbox');
-
-    // Проверяем, что клик был именно по элементу с классом custom-checkbox
     if (checkbox) {
         let currentStateIndex = states.findIndex(state => checkbox.classList.contains(state));
 
-        // Удаляем текущее состояние
+        // Удаляем текущее состояние и устанавливаем следующее
         checkbox.classList.remove(states[currentStateIndex]);
-
-        // Переходим к следующему состоянию
         currentStateIndex = (currentStateIndex + 1) % states.length;
-
-        // Применяем новое состояние
         checkbox.classList.add(states[currentStateIndex]);
+
+        // Обновляем значения в perc_value
+        updatePercOutput(checkbox.closest('.skills_checkbox').parentElement.querySelector('.globalInput'));
     }
 });
-
-const checkbox = document.getElementsByClassName('dexterity');
-        const checkboxValue = document.getElementById('checkboxValue');
-
-        let state = 0; // 0 - первое состояние, 1 - второе состояние, 2 - третье состояние
-
-        checkbox.addEventListener('click', () => {
-            if (state === 0) {
-                state = 1; // Переход на второе состояние
-                checkboxValue.textContent = 2; // Устанавливаем значение 2
-            } else if (state === 1) {
-                state = 2; // Переход на третье состояние
-                checkboxValue.textContent = 4; // Устанавливаем значение 4
-            } else {
-                state = 0; // Возврат в первое состояние
-                checkboxValue.textContent = 0; // Обнуляем значение
-                checkbox.checked = false; // Снимаем отметку с чекбокса
-            }
-        });

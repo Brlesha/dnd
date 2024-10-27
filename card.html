@@ -26,11 +26,14 @@
                 <li id="savePngButton">Сохранить карту</li>
             </ul>
         </div>
+
+<!-- --------------------------ПЕРВАЯ СТРАНИЦА---------------------------- -->
+
         <!-- Левый контейнер -->
         <div class="container">
             <div class="block block-1">
                 <div style="display: flex; justify-content: space-between; height: 38;">
-                    <input type="text" class="input-field" placeholder="Имя Персонажа">
+                    <input id="char_name" type="text" class="input-field" placeholder="Имя Персонажа">
                     <input type="text" class="input-field" placeholder="Предыстория">
                 </div>    
                 <div style="display: flex; justify-content: space-between; height: 38;">
@@ -51,45 +54,7 @@
                             <textarea class="textarea dynamic-textarea" placeholder="Что у вас есть?"></textarea>
                             <div class="label">Снаряжение</div>
                         </div>
-                        <div style="width: 98%; padding: -1px; height: 100px; bottom: 0px; position:absolute; display:flex; left: 13px;">
-                            <!--сила-->
-                            <div class="skills_list">
-                                <div class="skills_checkbox">
-                                    <div id="checkbox" class="custom-checkbox empty"><h5>&#10008;</h5></div>
-                                    <span class="skill_name">Спасбросок</span>
-                                </div>        
-                                <div class="skills_checkbox">
-                                    <div id="checkbox" class="custom-checkbox empty"><h5>&#10008;</h5></div>
-                                    <span class="skill_name">Атлетика</span>
-                                </div> 
-                            </div> 
-                            <!--ловкость-->
-                            <div class="skills_list">
-                                <div class="skills_checkbox">
-                                    <div id="checkbox" class="custom-checkbox empty"><h5>&#10008;</h5></div>
-                                    <span class="skill_name">Спасбросок</span>
-                                </div>  
-                                <div class="skills_checkbox">
-                                    <div id="checkbox" class="custom-checkbox empty"><h5>&#10008;</h5></div>
-                                    <span class="skill_name">Акробатика</span>
-                                </div> 
-                                <div class="skills_checkbox">
-                                    <div id="checkbox" class="custom-checkbox empty"><h5>&#10008;</h5></div>
-                                    <span class="skill_name">Ловкость рук</span>
-                                </div> 
-                                <div class="skills_checkbox">
-                                    <div id="checkbox" class="custom-checkbox empty"><h5>&#10008;</h5></div>
-                                    <span class="skill_name">Скрытность</span>
-                                </div> 
-                            </div>
-                            <!--телосложение-->
-                            <div class="skills_list">
-                                <div class="skills_checkbox">
-                                    <div id="checkbox" class="custom-checkbox empty"><h5>&#10008;</h5></div>
-                                    <span class="skill_name">Спасбросок</span>
-                                </div>  
-                            </div>                    
-                        </div>
+
                     </div>
 
                     <!-- Правая половинка второго блока -->
@@ -118,82 +83,6 @@
                         <div style="display: flex; flex-direction: columns;">
                             <div style="background-size: contain; width:355px; height: 120px;background-repeat: no-repeat; align-items: center; background-image: url('img/money.png');"></div>
                         </div>
-                        <div style="width: 110%; padding: -1px; height: 100px; bottom: 0px; position:absolute; display:flex; right: -40px;">
-                            <!--интеллект-->
-                            <div class="skills_list" style="width: 30%;">
-                                <div class="skills_checkbox">
-                                    <div id="checkbox" class="custom-checkbox empty"><h5>&#10008;</h5></div>
-                                    <span class="skill_name">Спасбросок</span>
-                                </div>        
-                                <div class="skills_checkbox">
-                                    <div id="checkbox" class="custom-checkbox empty"><h5>&#10008;</h5></div>
-                                    <span class="skill_name">Религия</span>
-                                </div> 
-                                <div class="skills_checkbox">
-                                    <div id="checkbox" class="custom-checkbox empty"><h5>&#10008;</h5></div>
-                                    <span class="skill_name">Природа</span>
-                                </div> 
-                                <div class="skills_checkbox">
-                                    <div id="checkbox" class="custom-checkbox empty"><h5>&#10008;</h5></div>
-                                    <span class="skill_name">Магия</span>
-                                </div> 
-                                <div class="skills_checkbox">
-                                    <div id="checkbox" class="custom-checkbox empty"><h5>&#10008;</h5></div>
-                                    <span class="skill_name">История</span>
-                                </div> 
-                                <div class="skills_checkbox">
-                                    <div id="checkbox" class="custom-checkbox empty"><h5>&#10008;</h5></div>
-                                    <span class="skill_name">Анализ</span>
-                                </div> 
-                            </div> 
-                            <!--мудрость-->
-                            <div class="skills_list" style="width: 36%;">
-                                <div class="skills_checkbox">
-                                    <div id="checkbox" class="custom-checkbox empty"><h5>&#10008;</h5></div>
-                                    <span class="skill_name">Спасбросок</span>
-                                </div>  
-                                <div class="skills_checkbox">
-                                    <div id="checkbox" class="custom-checkbox empty"><h5>&#10008;</h5></div>
-                                    <span class="skill_name">Уход за животн.</span>
-                                </div> 
-                                <div class="skills_checkbox">
-                                    <div id="checkbox" class="custom-checkbox empty"><h5>&#10008;</h5></div>
-                                    <span class="skill_name">Проницательность</span>
-                                </div> 
-                                <div class="skills_checkbox">
-                                    <div id="checkbox" class="custom-checkbox empty"><h5>&#10008;</h5></div>
-                                    <span class="skill_name">Медицина</span>
-                                </div> 
-                                <div class="skills_checkbox">
-                                    <div id="checkbox" class="custom-checkbox empty"><h5>&#10008;</h5></div>
-                                    <span class="skill_name">Выживание</span>
-                                </div> 
-                                <div class="skills_checkbox">
-                                    <div id="checkbox" class="custom-checkbox empty"><h5>&#10008;</h5></div>
-                                    <span class="skill_name">Внимательность</span>
-                                </div> 
-                            </div>
-                            <!--харизма-->
-                            <div class="skills_list" style="width: 28%;">
-                                <div class="skills_checkbox">
-                                    <div id="checkbox" class="custom-checkbox empty"><h5>&#10008;</h5></div>
-                                    <span class="skill_name">Спасбросок</span>
-                                </div>  
-                                <div class="skills_checkbox">
-                                    <div id="checkbox" class="custom-checkbox empty"><h5>&#10008;</h5></div>
-                                    <span class="skill_name">Выступление</span>
-                                </div> <div class="skills_checkbox">
-                                    <div id="checkbox" class="custom-checkbox empty"><h5>&#10008;</h5></div>
-                                    <span class="skill_name">Запугивание</span>
-                                </div> <div class="skills_checkbox">
-                                    <div id="checkbox" class="custom-checkbox empty"><h5>&#10008;</h5></div>
-                                    <span class="skill_name">Обман</span>
-                                </div> <div class="skills_checkbox">
-                                    <div id="checkbox" class="custom-checkbox empty"><h5>&#10008;</h5></div>
-                                    <span class="skill_name">Убеждение</span>
-                                </div> 
-                            </div>                    
-                    </div>
                     </div>
 
 
@@ -201,35 +90,167 @@
 
             </div>
             <div class="block block-3">
-                <div class="perc" style="position: relative;">
-                    <h class="perc_value"></h>
-                    <input class="perc_input textarea perc-textarea" placeholder="10" autocomplete="off">
-                    <div style="position: absolute; bottom: -16px;">сила</div>
+<!--СИЛА-->        
+                <div class="perc" style="height: 100%; width: 17%; display: flex; flex-direction: column-reverse; align-items: center;">
+                    <div style="">сила</div>
+                    <input class="globalInput perc_input textarea perc-textarea" placeholder="10" autocomplete="off">
+                    <h class="globalPercValue perc_value" style="width: 50px; height: 20%; text-align: center;">+0</h>
+                    <div class="skills_checkbox perc">
+                        <div class="custom-checkbox empty">
+                            <h class="perc_value" style="font-size: 24px; padding: 0 0 3px 0;">+0</h>
+                        </div>
+                        <span class="skill_name">Спасбросок</span>
+                    </div>
+                    <div class="skills_checkbox perc">
+                        <div class="custom-checkbox empty">
+                            <h class="perc_value" style="font-size: 24px; padding: 0 0 3px 0;">+0</h>
+                        </div>
+                        <span class="skill_name">Атлетика</span>
+                    </div>                    
                 </div>
-                <div class="perc" style="position: relative;">
-                    <h class="perc_value"></h>
-                    <input class="perc_input textarea perc-textarea" placeholder="10" autocomplete="off">
-                    <div style="position: absolute; bottom: -16px;">телосложение</div>
+<!--ЛОВКОСТЬ-->                        
+                <div class="perc" style="height: 100%; width: 17%; display: flex; flex-direction: column-reverse; align-items: center;">
+                    <div style="">ловкость</div>
+                    <input class="globalInput perc_input textarea perc-textarea" placeholder="10" autocomplete="off">
+                    <h class="globalPercValue perc_value" style="width: 50px; height: 20%; text-align: center;">+0</h>
+                    <div class="skills_checkbox perc">
+                        <div class="custom-checkbox empty">
+                            <h class="perc_value" style="font-size: 24px; padding: 0 0 3px 0;">+0</h>
+                        </div>
+                        <span class="skill_name">Спасбросок</span>
+                    </div>
+                    <div class="skills_checkbox perc">
+                        <div class="custom-checkbox empty">
+                            <h class="perc_value" style="font-size: 24px; padding: 0 0 3px 0;">+0</h>
+                        </div>
+                        <span class="skill_name">Скрытность</span>
+                    </div>        
+                    <div class="skills_checkbox perc">
+                        <div class="custom-checkbox empty">
+                            <h class="perc_value" style="font-size: 24px; padding: 0 0 3px 0;">+0</h>
+                        </div>
+                        <span class="skill_name">Акробатика</span>
+                    </div>
+                    <div class="skills_checkbox perc">
+                        <div class="custom-checkbox empty">
+                            <h class="perc_value" style="font-size: 24px; padding: 0 0 3px 0;">+0</h>
+                        </div>
+                        <span class="skill_name">Ловкость рук</span>
+                    </div>            
                 </div>
-                <div class="perc" style="position: relative;">
-                    <h class="perc_value"></h>
-                    <input class="perc_input textarea perc-textarea" placeholder="10" autocomplete="off">
-                    <div style="position: absolute; bottom: -16px;">ловкость</div>
+<!--ТЕЛОСЛОЖЕНИЕ-->                
+                <div class="perc" style="height: 100%; width: 17%; display: flex; flex-direction: column-reverse; align-items: center;">
+                    <div style="">телосложение</div>
+                    <input class="globalInput perc_input textarea perc-textarea" placeholder="10" autocomplete="off">
+                    <h class="globalPercValue perc_value" style="width: 50px; height: 20%; text-align: center;">+0</h>
+                    <div class="skills_checkbox perc">
+                        <div class="custom-checkbox empty">
+                            <h class="perc_value" style="font-size: 24px; padding: 0 0 3px 0;">+0</h>
+                        </div>
+                        <span class="skill_name">Спасбросок</span>
+                    </div>                  
                 </div>
-                <div class="perc" style="position: relative;">
-                    <h class="perc_value"></h>
-                    <input class="perc_input textarea perc-textarea" placeholder="10" autocomplete="off">
-                    <div style="position: absolute; bottom: -16px;">интеллект</div>
+<!--ИНТЕЛЛЕКТ-->
+                <div class="perc" style="height: 100%; width: 17%; display: flex; flex-direction: column-reverse; align-items: center;">
+                    <div style="">интеллект</div>
+                    <input class="globalInput perc_input textarea perc-textarea" placeholder="10" autocomplete="off">
+                    <h class="globalPercValue perc_value" style="width: 50px; height: 20%; text-align: center;">+0</h>
+                    <div class="skills_checkbox perc">
+                        <div class="custom-checkbox empty">
+                            <h class="perc_value" style="font-size: 24px; padding: 0 0 3px 0;">+0</h>
+                        </div>
+                        <span class="skill_name">Спасбросок</span>
+                    </div>
+                    <div class="skills_checkbox perc">
+                        <div class="custom-checkbox empty">
+                            <h class="perc_value" style="font-size: 24px; padding: 0 0 3px 0;">+0</h>
+                        </div>
+                        <span class="skill_name">Религия</span>
+                    </div> 
+                    <div class="skills_checkbox perc">
+                        <div class="custom-checkbox empty">
+                            <h class="perc_value" style="font-size: 24px; padding: 0 0 3px 0;">+0</h>
+                        </div>
+                        <span class="skill_name">Природа</span>
+                    </div>
+                    <div class="skills_checkbox perc">
+                        <div class="custom-checkbox empty">
+                            <h class="perc_value" style="font-size: 24px; padding: 0 0 3px 0;">+0</h>
+                        </div>
+                        <span class="skill_name">Магия</span>
+                    </div>    
+                    <div class="skills_checkbox perc">
+                        <div class="custom-checkbox empty">
+                            <h class="perc_value" style="font-size: 24px; padding: 0 0 3px 0;">+0</h>
+                        </div>
+                        <span class="skill_name">История</span>
+                    </div>
+                    <div class="skills_checkbox perc">
+                        <div class="custom-checkbox empty">
+                            <h class="perc_value" style="font-size: 24px; padding: 0 0 3px 0;">+0</h>
+                        </div>
+                        <span class="skill_name">Анализ</span>
+                    </div>               
                 </div>
-                <div class="perc" style="position: relative;">
-                    <h class="perc_value"></h>
-                    <input class="perc_input textarea perc-textarea" placeholder="10" autocomplete="off">
-                    <div style="position: absolute; bottom: -16px;">мудрость</div>
+<!--МУДРОСТЬ-->
+                <div class="perc" style="height: 100%; width: 17%; display: flex; flex-direction: column-reverse; align-items: center;">
+                    <div style="">мудрость</div>
+                    <input class="globalInput perc_input textarea perc-textarea" placeholder="10" autocomplete="off">
+                    <h class="globalPercValue perc_value" style="width: 50px; height: 20%; text-align: center;">+0</h>
+                    <div class="skills_checkbox perc">
+                        <div class="custom-checkbox empty">
+                            <h class="perc_value" style="font-size: 24px; padding: 0 0 3px 0;">+0</h>
+                        </div>
+                        <span class="skill_name">Спасбросок</span>
+                    </div>
+                    <div class="skills_checkbox perc">
+                        <div class="custom-checkbox empty">
+                            <h class="perc_value" style="font-size: 24px; padding: 0 0 3px 0;">+0</h>
+                        </div>
+                        <span class="skill_name">Уход за жив.</span>
+                    </div>
+                    <div class="skills_checkbox perc">
+                        <div class="custom-checkbox empty">
+                            <h class="perc_value" style="font-size: 24px; padding: 0 0 3px 0;">+0</h>
+                        </div>
+                        <span class="skill_name">Проницательность</span>
+                    </div>
+                    <div class="skills_checkbox perc">
+                        <div class="custom-checkbox empty">
+                            <h class="perc_value" style="font-size: 24px; padding: 0 0 3px 0;">+0</h>
+                        </div>
+                        <span class="skill_name">Медицина</span>
+                    </div>
+                    <div class="skills_checkbox perc">
+                        <div class="custom-checkbox empty">
+                            <h class="perc_value" style="font-size: 24px; padding: 0 0 3px 0;">+0</h>
+                        </div>
+                        <span class="skill_name">Выживание</span>
+                    </div>
+                    <div class="skills_checkbox perc">
+                        <div class="custom-checkbox empty">
+                            <h class="perc_value" style="font-size: 24px; padding: 0 0 3px 0;">+0</h>
+                        </div>
+                        <span class="skill_name">Внимательность</span>
+                    </div>                    
                 </div>
-                <div class="perc" style="position: relative;">
-                    <h class="perc_value"></h>
-                    <input class="perc_input textarea perc-textarea " placeholder="10" autocomplete="off">
-                    <div style="position: absolute; bottom: -16px;">харизма</div>
+<!--ХАРИЗМА-->
+                <div class="perc" style="height: 100%; width: 17%; display: flex; flex-direction: column-reverse; align-items: center;">
+                    <div style="">харизма</div>
+                    <input class="globalInput perc_input textarea perc-textarea" placeholder="10" autocomplete="off">
+                    <h class="globalPercValue perc_value" style="width: 50px; height: 20%; text-align: center;">+0</h>
+                    <div class="skills_checkbox perc">
+                        <div class="custom-checkbox empty">
+                            <h class="perc_value" style="font-size: 24px; padding: 0 0 3px 0;">+0</h>
+                        </div>
+                        <span class="skill_name">Спасбросок</span>
+                    </div>
+                    <div class="skills_checkbox perc">
+                        <div class="custom-checkbox empty">
+                            <h class="perc_value" style="font-size: 24px; padding: 0 0 3px 0;">+0</h>
+                        </div>
+                        <span class="skill_name">Атлетика</span>
+                    </div>                    
                 </div>
             </div>
         </div>
@@ -284,26 +305,29 @@
                 </div>
         </div>
     </div>
-    <!--вторая страница-->
+
+<!-- --------------------------ВТОРАЯ СТРАНИЦА----------------------------- -->
+
     <div id="overlay" class="page" style="margin-top: 30px;">
         <img src="img/pergament.jpg" style="width: 1480px; height: 1050px; z-index: 1; opacity: 0.15; position:absolute; pointer-events: none;"></img>
         <div style="width: 50%; padding: -1px;">
             <div style="height: 100%;width: 740px; position: absolute; margin: 0 auto; text-align: center; display: flex; align-items: center; background-color: rgba(255, 255, 255, 0.25);"> <h1 style="width: 740px;">фотка перса</h1> </div>
         </div>
         <div style="width: 50%; padding: -1px;">
-            <h1>имя перса</h1>
-            <div class="input-wrapper ref">
-                <textarea class="textarea ref-textarea" style="height:100px" placeholder=""></textarea>
+            <h1 class="char_name_disp">Имя Персонажа</h1>
+            <div class="input-wrapper">
+                <textarea class="textarea dynamic-textarea" placeholder="..."></textarea>
                 <div class="label">предыстория</div>
             </div>    
             <div class="input-wrapper ref">
-                <textarea class="textarea ref-textarea" style="height:100px" placeholder=""></textarea>
-                <div class="label">цели и задачи</div>
-            </div>
-            <div class="input-wrapper ref">
-                <textarea class="textarea ref-textarea" style="height:100px" placeholder=""></textarea>
-                <div class="label">доп инфа</div>
-            </div>
+                <div class="input-wrapper">
+                    <textarea class="textarea dynamic-textarea" placeholder="..."></textarea>
+                    <div class="label">цели и задачи</div>
+                </div>
+                <div class="input-wrapper">
+                    <textarea class="textarea dynamic-textarea" placeholder="..."></textarea>
+                    <div class="label">дополнительная информация</div>
+                </div>
         </div>
     </div>
 </body>
