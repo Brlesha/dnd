@@ -165,16 +165,6 @@ body {
     text-decoration-thickness: 1.5px;
 }
 
-/* стили для input */
-
-/* 1 – Изменим стили шрифтов */
-/* 2 – Удалим margin в Firefox и Safari */
-input[type="text"] {
-    font-family: 'algeria'; /* 1 */
-    font-size: inherit; /* 1 */
-    line-height: inherit; /* 1 */
-    margin: 0; /* 2 */
-    }
 
 /* установим отступ 1rem от нижнего края элемента */
 .text-field {
@@ -263,6 +253,9 @@ input[type="text"] {
 .btn-one {
 	transition: all 0.3s;
 	position: relative;
+}
+.btn-one:active {
+    background-color:  rgba(255, 255, 255, 0.3);
 }
 .btn-one span {
 	transition: all 0.3s;

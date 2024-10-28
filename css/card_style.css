@@ -41,7 +41,6 @@ body {
     transition: background-color 0.5s ease;
 }
 
-
 .perc_value {
     font-family: Beaumarchais;
     margin-top: 4px;
@@ -83,6 +82,7 @@ body {
     width: 720px;
     left: -5px;
 }
+
 .input-field {
     font-family: Beaumarchais;
     height: 40px; /* Высота полей */
@@ -97,13 +97,10 @@ body {
     font-size: 30px; /* Размер шрифта 20 пикселей */
     outline: none; /* Убираем синюю окантовку */
 }
-
-/* Стиль для плейсхолдера */
 .input-field::placeholder {
-    color: #333333; /* Цвет плейсхолдера темно-серый */
-    font-size: 20px; /* Размер шрифта плейсхолдера 20 пикселей */
+    color: #fffff0bd;
+    font-size: 25px;
 }
-
 
 .textarea {
     font-family: Bainsley;

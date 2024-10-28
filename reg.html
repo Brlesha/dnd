@@ -16,13 +16,13 @@
                 <div class="text-field__label">
                     <p class="text">Уже есть аккаунт? <a class="underline" href="login.html">Войти</a>.</p>
                 </div>
-                    <div class="reg">
+                    <div id="registrationForm" class="reg">
                         <label class="text-field__label" for="name"><b>Никнейм</b></label>
-                        <input class="text-field__input" id="name" placeholder="Как к вам обращаться?" name="name" required>
+                        <input class="text-field__input" id="name" name="name" type="text" placeholder="Как к вам обращаться?" required>
                         <label class="text-field__label" for="login"><b>Почта</b></label>
-                        <input class="text-field__input" id="login" placeholder="Ваш почтовый адрес" name="email" required>
+                        <input class="text-field__input" id="login" name="email" type="text" placeholder="Ваш почтовый адрес" required>
                         <label class="text-field__label" for="password"><b>Пароль</b></label>
-                        <input class="text-field__input" id="password" placeholder="Пароль для входа" name="password" required>
+                        <input class="text-field__input" id="password" name="password" type="password" placeholder="Пароль для входа" required>
                     </div>
                 <p class="text">Создавая аккаунт вы соглашаетесь с нашими <a class="underline" href="#">Правилами</a>.</p>
 
@@ -33,6 +33,6 @@
             </main>
             <footer class="footer"><span class="left">© Lion Bones Entertainment, 2023</span><a href="https://t.me/Brlesha" target="_blank" class="right button"><img src="img/tg_icon.png" alt="Ссылка на телеграм" title="Ссылка на телеграм" class="tg_icon"/> <h3> Поддержка </h3> </a></footer>
     </div>
-<script src="script.js"></script>
 </body>
+<script src="scripts/reg_log.js"></script>
 </html>
